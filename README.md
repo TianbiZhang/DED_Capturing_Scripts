@@ -6,7 +6,7 @@ This a series of python scripts for automated operations with the Advacam Timepi
 
 This project only includes my custom python scripts. After downloading, please paste the scripts (not the home folder) to your PIXETPro installation directory.
 
-If you wish to use the scripts elsewhere, please either (1) manually add the PIXET Pro installation directory to PATH, or (2) add the following code before `import pypixet` in the python scripts:
+If you wish to use the scripts elsewhere, please add the following code before `import pypixet` in the python scripts:
 
 ```
 import sys
