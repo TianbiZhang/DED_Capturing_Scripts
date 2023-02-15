@@ -13,4 +13,6 @@ import sys
 sys.path.insert(0, 'C:\\Users\\billy\\Documents\\PIXetPro') 
 ```
 
+In addition. it is strongly suggested that you install PIXET Pro outside ``Program Files`` (or directories where you need admin priviliges).
+
 The Python library for the DED, pypixet, is already included in the PIXET Pro installation. The python wrapper for SmarAct (MCS; originally in C++) is included in this project and are available on the SmarAct website as well.
