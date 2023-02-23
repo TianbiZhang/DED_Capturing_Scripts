@@ -1,5 +1,5 @@
 """
-mask.trial.py
+mask_circle.py
 
 Tianbi Zhang, February 2023
 
@@ -79,7 +79,7 @@ for pixel in pixelID:
     rc = dpc.mask(pixel, 1)
 
 # Save new configuration to a file
-configname = "C:\\Users\\billy\\Documents\\GitHub\\DEDCapturingScripts\\CustomConfig\\NewMaskConfig.xml"
+configname = "CustomConfig\\Circle20MRadConfig_TPX3.xml"
 device.saveConfigToFile(configname)
 
 # exit
