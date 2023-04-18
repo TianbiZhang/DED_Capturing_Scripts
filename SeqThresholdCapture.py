@@ -26,7 +26,7 @@ dev.loadFactoryConfig()
 frametime = 0.0005
 framenumber = 200
 
-filename = "C:\\Users\\billy\\Documents\\PIXetPro\\Threshold\\30kV_00005s_200f_"
+filename = "C:\\Users\\tianbi\\Documents\\TKD\\20230301_gain_frame\\30kV_00005s_200f_"
 
 rc = dev.doSimpleAcquisition(framenumber, frametime, pixet.PX_FTYPE_AUTODETECT, filename + "th3.h5")
 print(f"Acquired to: {filename}th3.h5")
@@ -42,3 +42,5 @@ for thres in th_list:
 
     
 print("Acquisition finished.")
+
+pypixet.exit()

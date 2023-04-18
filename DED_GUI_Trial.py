@@ -93,7 +93,7 @@ def acqExample2():
     filename = folder_path.get() + f"/Spot{fileindex}.h5"
     
     try:
-        rc = dev.doSimpleIntegralAcquisition(1, 0.01, pixet.PX_FTYPE_AUTODETECT, filename)
+        rc = dev.doSimpleAcquisition(1, 0.005, pixet.PX_FTYPE_AUTODETECT, filename)
         CurrentTime = RecordTime()
         if rc == 0:
             #tfield.insert(INSERT, f"{CurrentTime}: Acquired to {filename}.\n")

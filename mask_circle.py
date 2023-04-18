@@ -26,7 +26,7 @@ import pypixet
 # User inputs: PC and radius
 PC_x = 128
 PC_y = 128
-radius = 20
+radius = 75
 
 # Calculate all the coordinates and convert them to pixel ID (0-65535)
 def coordinates(PCx, PCy, R):
@@ -79,7 +79,7 @@ for pixel in pixelID:
     rc = dpc.mask(pixel, 1)
 
 # Save new configuration to a file
-configname = "CustomConfig\\Circle20MRadConfig_TPX3.xml"
+configname = "C:\\Users\\tianbi\\Documents\\GitHub\\DEDCapturingScripts\\CustomConfig\\Circle75MRadConfig_TPX3.xml"
 device.saveConfigToFile(configname)
 
 # exit
