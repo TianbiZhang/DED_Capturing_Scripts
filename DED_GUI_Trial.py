@@ -93,7 +93,9 @@ def acqExample2():
     filename = folder_path.get() + f"/Spot{fileindex}.h5"
     
     try:
-        rc = dev.doSimpleAcquisition(1, 0.005, pixet.PX_FTYPE_AUTODETECT, filename)
+        rc = dev.doSimpleIntegralAcquisition(10, 0.01, pixet.PX_FTYPE_AUTODETECT, filename)
+        #rc = dev.doSimpleIntegralAcquisition(100, 0.015, pixet.PX_FTYPE_AUTODETECT, filename)
+        #rc = dev.doSimpleAcquisition(1, 0.008, pixet.PX_FTYPE_AUTODETECT, filename)
         CurrentTime = RecordTime()
         if rc == 0:
             #tfield.insert(INSERT, f"{CurrentTime}: Acquired to {filename}.\n")
@@ -114,6 +116,44 @@ def acqExample2():
     # except NameError:
     #     tfield.insert(INSERT, "No devices connected. \n")
         
+def SeqAcq():
+    global rounded_temperature
+    global dev
+    global isTPX3
+    filepath = folder_path.get()
+    if filepath == "":
+        #tfield.insert(INSERT, "Please select a directory!.\n")
+        TextOutputWithTime(f"Please select a directory!.")
+        return
+
+    frame_time = [0.0001, 0.001, 0.005, 0.01, 0.05, 0.1]
+    frame_num = 50
+
+    for i in range(len(frame_time)):
+        current_frame_time = frame_time[i]
+        frametime_string = str(current_frame_time).replace(".","")
+        filename = filepath + "\\" + f"{frametime_string}s_{frame_num}fs.h5"
+
+        try:
+            rc = dev.doSimpleAcquisition(frame_num, current_frame_time, pixet.PX_FTYPE_AUTODETECT, filename)
+            CurrentTime = RecordTime()
+            if rc == 0:
+            #tfield.insert(INSERT, f"{CurrentTime}: Acquired to {filename}.\n")
+                TextOutputWithTime(f"Acquired to {filename}.")
+            else:
+            #tfield.insert(INSERT, "No devices connected. \n")
+                TextOutputWithTime(f"No devices connected.")
+        except NameError:
+        ##tfield.insert(INSERT, "No devices connected. \n")
+                TextOutputWithTime(f"No devices connected.")
+        if isTPX3:
+            CurrentTime = RecordTime()
+            temp = dev.temperature(pixet.PX_MPXDACS_CHIP_ALL, pixet.PX_THLFLG_ENERGY)
+            rounded_temperature = '{0:.5g}'.format(temp)
+        ##tfield.insert(INSERT, f"{CurrentTime}: T = {rounded_temperature}. \n")
+            TextOutputWithTime(f"T={rounded_temperature}")
+    # except NameError:
+        #     tfield.insert(INSERT, "No devices connected. \n")
 
 def browse_button():
     # Allow user to select a directory and store it in global var
@@ -167,6 +207,11 @@ b_initialize_tpx3.grid(column=1,row=0,sticky=W, padx=5, pady=5)
 # Button for capture
 b_capture = Button(root, text = "Capture",font=("Arial", 10), command=acqExample2, bg='teal', fg='white', activebackground="lightblue", padx=10, pady=10 )
 b_capture.grid(column=2,row=0,sticky=W, padx=5, pady=5)
+
+# Button for capture
+b_seqacq = Button(root, text = "Seq Capture",font=("Arial", 10), command=SeqAcq, bg='teal', fg='white', activebackground="lightblue", padx=10, pady=10 )
+b_seqacq.grid(column=3,row=0,sticky=W, padx=5, pady=5)
+
 # Textbox displaying selected directory
 lbldirectory = Label(master=root,textvariable=folder_path, font=("Arial", 10),wraplength=250, justify="left")
 lbldirectory.grid(column=0, row=2, columnspan=2)

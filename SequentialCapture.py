@@ -28,16 +28,17 @@ else:
     dev = devices[0] # use  the first device
     #dev.loadFactoryConfig()
     dev.setOperationMode(pixet.PX_TPX3_OPM_EVENT_ITOT)
+    dev_name = dev.fullName()
     #tfield.insert(INSERT, f"Connected to: {dev} and set to Event+iToT mode.\n")
-    print(f"Connected to: {dev} and set to Event+iToT mode.")
+    print(f"Connected to: {dev_name} and set to Event+iToT mode.")
     isTPX3 = True
 
-frame_time = [0.0001, 0.001, 0.005, 0.01, 0.05, 0.1]
+frame_time = [0.001, 0.005, 0.01, 0.05, 0.1]
 # frame_time = [0.0001, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05]
 #frame_time = [0.0001, 0.001]
 frame_num = 50
 
-path = 'C:\\Users\\tianbi\\Documents\\TKD\\20230407_al\\r1s7_r2'
+path = 'C:\\Users\\tianbi\\OneDrive - UBC\\PhD\\TKD\\20230821_seq_Al\\spot5'
 
 for i in range(len(frame_time)):
     current_frame_time = frame_time[i]
@@ -45,8 +46,6 @@ for i in range(len(frame_time)):
     frametime_string = str(current_frame_time).replace(".","")
     filename = path + "\\" + f"{frametime_string}s_{frame_num}fs.h5"
     
-    
-
     try:
         rc = dev.doSimpleAcquisition(frame_num, frame_time[i], pixet.PX_FTYPE_AUTODETECT, filename)
         #rc = dev.doSimpleIntegralAcquisition(1, 0.01, pixet.PX_FTYPE_AUTODETECT, filename)
