@@ -17,7 +17,7 @@ Additional python packages needed:
 
 This is a python GUI I wrote for capturing patterns in a sequence for scenarios such as EBSD mapping. You will need to connect to the DED (Init. TP3 Dev.) first, then set the directory where you want to store the patterns. The patterns will be named as "spot1.h5", "spot2.h5", etc. Note that to reset the counter you need to restart the GUI. After each capture, there will be a message in the textbox reporting the time stamp, pattern name, and detector temperature. You can store this into a log file.
 
-The frame number integrated and exposure time can be changed in the ``acq_Example2'' function.
+The frame number integrated and exposure time can be changed in the ``acq_Example2`` function.
 
 ## Sequential Capture
 
