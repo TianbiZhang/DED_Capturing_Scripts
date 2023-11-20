@@ -1,0 +1,15 @@
+cff-version: 1.1.0
+message: "If you use this software, please cite it as below."
+references:
+-type: software
+authors:
+- family-names: Zhang
+  given-names: Tianbi
+orcid: https://orcid.org/0000-0002-0035-9289
+title: DED Capturing Scripts
+- family-names: Britton
+  given-names: T Ben
+orcid: https://orcid.org/0000-0001-5343-9365
+title: DED Capturing Scripts
+version: v1.0.1
+date-released: 2023-11-20
