@@ -1,6 +1,8 @@
 # DED_Capturing_Scripts
 
-Tianbi Zhang
+[![DOI](https://zenodo.org/badge/601833400.svg)](https://zenodo.org/doi/10.5281/zenodo.10161484)
+
+By Tianbi Zhang
 
 Last updated: November 20, 2023
 
