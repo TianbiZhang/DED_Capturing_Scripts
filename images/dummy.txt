@@ -1,4 +1,0 @@
-C:\\Users\\tianbi\\Documents\\DED_script_new\\images\\retract_z002
-0
-100
-0.05
