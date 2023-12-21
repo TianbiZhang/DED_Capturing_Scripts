@@ -40,6 +40,8 @@ frame_num = 50
 
 path = 'C:\\Users\\tianbi\\OneDrive - UBC\\PhD\\TKD\\20230821_seq_Al\\spot5'
 
+path = 'C:\\Users\\billy\\Documents\\TKD\\20230418_TiN\\AL_ref_s1_r1'
+
 for i in range(len(frame_time)):
     current_frame_time = frame_time[i]
     
